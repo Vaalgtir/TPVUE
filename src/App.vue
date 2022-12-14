@@ -3,7 +3,7 @@ import Formik from "./components/provider/Formik.vue";
 import Field from "./components/Field.vue";
 
 const submit = (data) => {
-  console.log("debug here", data);
+  console.log("debug", data);
 };
 
 const validate = (values) => {
@@ -26,7 +26,8 @@ const initialValues = { email: "qsgfsr@h.jhgse", password: "" };
       @submitFinal="submit"
       :validate="validate"
       v-slot="{ handleSubmit }"
-      ><form @submit.prevent="handleSubmit">
+    >
+      <form @submit.prevent="handleSubmit">
         <Field :name="'email'" as="input" />
         <Field :name="'password'" />
         <button type="submit">envoyer</button>
