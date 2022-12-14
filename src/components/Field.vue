@@ -7,8 +7,12 @@ const props = defineProps(["name"]);
 const data = inject(dataKey);
 
 const value = data[props.name];
+
+const handleChange = (event) => {
+  console.log(event.target.value);
+};
 </script>
 
 <template>
-  <input value="{{value}}" />
+  <input :value="value" @change="handleChange" />
 </template>

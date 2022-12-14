@@ -1,5 +1,6 @@
 <script setup>
 import Formik from "./components/provider/Formik.vue";
+import Field from "./components/Field.vue";
 
 const submit = (data) => {
   console.log("debug here", data);
@@ -26,6 +27,7 @@ const initialValues = { email: "qsgfsr@h.jhgse", password: "" };
       :validate="validate"
       v-slot="{ handleSubmit }"
       ><form @submit.prevent="handleSubmit">
+        <Field :name="'email'" />
         <button type="submit">envoyer</button>
       </form>
     </Formik>

@@ -1,7 +1,6 @@
 <script setup>
-import { ref, provide } from "vue";
+import { provide, reactive } from "vue";
 import { data as dataKey } from "./DataProviderKeys";
-const data = ref();
 
 const $emit = defineEmits(["submitFinal"]);
 
@@ -15,8 +14,7 @@ const props = defineProps({
     required: true,
   },
 });
-
-data.value = props.initialValues;
+const data = reactive(props.initialValues);
 
 const handleSubmit = () => {
   const errors = props.validate(data.value);
