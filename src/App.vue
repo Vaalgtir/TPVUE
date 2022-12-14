@@ -15,7 +15,7 @@ const validate = (values) => {
   return errors;
 };
 
-const initialValues = { email: "qsgfsr", password: "" };
+const initialValues = { email: "qsgfsr@h.jhgse", password: "" };
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const initialValues = { email: "qsgfsr", password: "" };
       :validate="validate"
       v-slot="{ handleSubmit }"
       ><form @submit.prevent="handleSubmit">
-        <button type="submit">sdgdsreg</button>
+        <button type="submit">envoyer</button>
       </form>
     </Formik>
   </main>
