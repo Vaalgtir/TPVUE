@@ -1,14 +1,30 @@
 <script setup>
-import Formik from "./components/Formik.vue";
+import Formik from "./components/provider/Formik.vue";
 
 const submit = (data) => {
   console.log("debug here", data);
 };
+
+const validate = (values) => {
+  const errors = {};
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+  return errors;
+};
+
+const initialValues = { email: "qsgfsr", password: "" };
 </script>
 
 <template>
   <main>
-    <Formik @submitFinal="submit" :validate="() => {}" v-slot="{ handleSubmit }"
+    <Formik
+      :initialValues="initialValues"
+      @submitFinal="submit"
+      :validate="validate"
+      v-slot="{ handleSubmit }"
       ><form @submit.prevent="handleSubmit">
         <button type="submit">sdgdsreg</button>
       </form>
