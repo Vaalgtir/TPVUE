@@ -16,13 +16,13 @@ const props = defineProps({
   },
 });
 const data = reactive(props.initialValues);
-const errors = reactive();
+let errors = reactive();
 
 const handleSubmit = () => {
-  errors.value = props.validate(data);
-  console.log(errors.value);
+  // errors.value = props.validate(data);
+  const errorValidate = props.validate(data);
 
-  if (Object.keys(errors).length === 0) $emit("submitFinal", data);
+  if (Object.keys(errorValidate).length === 0) $emit("submitFinal", data);
 };
 
 provide(dataKey, data);
