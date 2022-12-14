@@ -9,10 +9,10 @@ const data = inject(dataKey);
 const value = data[props.name];
 
 const handleChange = (event) => {
-  console.log(event.target.value);
+  data[props.name] = event.target.value;
 };
 </script>
 
 <template>
-  <input :value="value" @change="handleChange" />
+  <input :value="value" @input="handleChange" />
 </template>

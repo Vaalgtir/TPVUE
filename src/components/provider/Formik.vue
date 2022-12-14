@@ -17,9 +17,9 @@ const props = defineProps({
 const data = reactive(props.initialValues);
 
 const handleSubmit = () => {
-  const errors = props.validate(data.value);
+  const errors = props.validate(data);
 
-  if (Object.keys(errors).length === 0) $emit("submitFinal", data.value);
+  if (Object.keys(errors).length === 0) $emit("submitFinal", data);
 };
 
 provide(dataKey, data);

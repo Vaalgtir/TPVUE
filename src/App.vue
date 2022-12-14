@@ -28,6 +28,7 @@ const initialValues = { email: "qsgfsr@h.jhgse", password: "" };
       v-slot="{ handleSubmit }"
       ><form @submit.prevent="handleSubmit">
         <Field :name="'email'" />
+        <Field :name="'password'" />
         <button type="submit">envoyer</button>
       </form>
     </Formik>
